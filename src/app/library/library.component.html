@@ -1,0 +1,15 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Your Library</h1>
+      <p class="lead">Powered by Google Books</p>
+    </div>
+</div>
+
+<div class="container">
+    <h5 class="card-header">Your Books</h5>
+    <div class="btn-group-vertical list-group">
+        <button *ngFor="let book of apiService.library" type="button" class="btn book">{{ book }}</button>
+        <br>
+    </div>
+    <button type="button" class="btn btn-dark" routerLink="/search">Return to Search</button>
+</div>

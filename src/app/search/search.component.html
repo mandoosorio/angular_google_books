@@ -1,0 +1,35 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Book API</h1>
+      <p class="lead">Powered by Google Books</p>
+    </div>
+</div>
+
+<div class="container">
+    <form>
+        <div class="form-group">
+            <h2 for="booksearch">Book Title</h2>
+        </div>
+    </form>
+
+    <input class="form-control" type="text" id="booksearch" [(ngModel)]="info.searchString"/><br>
+    <!-- <input type="button" class="btn btn-primary" (click)="info.printSearch()" value="Find Books"> -->
+    <br>
+    <input type="button" class="btn btn-primary" (click)="info.getInfo()" value="Find Books">
+</div>
+
+<br>
+
+<div class="container">
+  <h5 class="card-header">Results</h5>
+  <div *ngFor="let book of apiInfo.items" class="list-group">
+    <div class="list-group-item list-group-item-action">{{ book.volumeInfo.title }}
+        <button class="btn btn-success btn-sm text-right add" [value]="book" (click)="info.addBook($event.target.parentNode.childNodes[0].textContent)">+</button>
+    </div>
+  </div>
+  <br>
+  <button type="button" class="btn btn-dark" routerLink="/library">View Library</button>
+
+  <br> <!--Footer--> <br>
+</div>
+
